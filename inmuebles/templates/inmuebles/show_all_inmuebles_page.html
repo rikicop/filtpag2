@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
+    <title>Inmuebles</title>
+</head>
+<body>
+
+    {% load inmuebles_extras %} 
+
+    <form method="GET" action="">
+        {{ filtered_inmuebles.form.as_table }}
+        <br>
+        <input type="submit" value="press">
+    </form>
+    {%  for inmueble in inmueble_page_obj %}
+       <h2>
+           {{ inmueble.tipo }}
+           <br>
+           {{ inmueble.edo }}
+           <br>
+           {{ inmueble.description }}
+           <br>
+       </h2>
+    {% endfor %}
+    <div class="pagination">
+     <span class="step-links">
+      {% if inmueble_page_obj.has_previous %}
+        <a href="{% my_url 1 'page' request.GET.urlencode %}">&laquo; First</a>
+        <a href="{% my_url inmueble_page_obj.previous_page_number 'page' request.GET.urlencode %}">Previous</a>
+      {% endif %}
+
+        <span class="current">
+            Page {{ inmueble_page_obj.number }} of {{ inmueble_page_obj.paginator.num_pages }}
+        </span>
+
+       {% if inmueble_page_obj.has_next %}
+          <a href="{% my_url inmueble_page_obj.next_page_number 'page' request.GET.urlencode %}"> Next</a>
+          <a href="{% my_url inmueble_page_obj.paginator.num_pages 'page' request.GET.urlencode %}">&raquo; Last</a>
+       {% endif %}
+     </span>
+    </div>
+
+</body>
+</html>
