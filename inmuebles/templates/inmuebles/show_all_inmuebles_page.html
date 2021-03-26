@@ -25,6 +25,8 @@
            <br>
            {{ inmueble.description }}
            <br>
+           <!-- <img  src="media/{{ inmueble.image }}" > # creo que falta static -->
+           <img  src="{{ inmueble.image.url }}">
        </h2>
     {% endfor %}
     <div class="pagination">
