@@ -27,6 +27,8 @@
            <br>
            <!-- <img  src="media/{{ inmueble.image }}" > # creo que falta static -->
            <img  src="{{ inmueble.image.url }}">
+           <br>
+           <a href="{% url 'detalle' inmueble.id %}" class="btn btn-primary btn-md">Read more</a>
        </h2>
     {% endfor %}
     <div class="pagination">

@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from django.core.paginator import Paginator
 
-from .models import Inmueble
+from .models import Inmueble, InmuebleImage
 from .filters import InmuebleFilter
 
 def show_all_inmuebles_page(request):
@@ -21,3 +21,9 @@ def show_all_inmuebles_page(request):
 
 
     return render(request, 'inmuebles/show_all_inmuebles_page.html',context=context) 
+
+def detalle_view(request, id):
+    inmueble = get_object_or_404(Inmueble, id=id)
+    #Va a filtrar un inmueble en particular
+    fotos = InmuebleImage.objects.filter(inmueble=inmueble)
+    return render(request, 'inmuebles/detalle.html', {'inmueble':inmueble,'fotos':fotos})
