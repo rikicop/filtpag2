@@ -3,12 +3,15 @@
 {% block content %}
 
     {% load inmuebles_extras %} 
-
-    <form method="GET" action="">
-        {{ filtered_inmuebles.form.as_table }}
-        <br>
-        <input type="submit" value="press">
-    </form>
+    <div class="form_text">
+      <form method="GET" action="">
+          {{ filtered_inmuebles.form.as_table }}
+          <br>
+          <input type="submit" class="btn btn-primary btn-md" value="Buscar">
+      </form>
+   </div>
+    <br>
+   
     {%  for inmueble in inmueble_page_obj %}
        <h2>
            {{ inmueble.tipo }}
@@ -26,8 +29,8 @@
     <div class="pagination">
      <span class="step-links">
       {% if inmueble_page_obj.has_previous %}
-        <a href="{% my_url 1 'page' request.GET.urlencode %}">&laquo; First</a>
-        <a href="{% my_url inmueble_page_obj.previous_page_number 'page' request.GET.urlencode %}">Previous</a>
+        <a href="{% my_url 1 'page' request.GET.urlencode %}">&laquo; Primero</a>
+        <a href="{% my_url inmueble_page_obj.previous_page_number 'page' request.GET.urlencode %}">Anterior</a>
       {% endif %}
 
         <span class="current">
@@ -35,8 +38,8 @@
         </span>
 
        {% if inmueble_page_obj.has_next %}
-          <a href="{% my_url inmueble_page_obj.next_page_number 'page' request.GET.urlencode %}"> Next</a>
-          <a href="{% my_url inmueble_page_obj.paginator.num_pages 'page' request.GET.urlencode %}">&raquo; Last</a>
+          <a href="{% my_url inmueble_page_obj.next_page_number 'page' request.GET.urlencode %}"> Siguiente</a>
+          <a href="{% my_url inmueble_page_obj.paginator.num_pages 'page' request.GET.urlencode %}">&raquo; Último</a>
        {% endif %}
      </span>
     </div>
