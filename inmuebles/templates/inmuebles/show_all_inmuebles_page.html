@@ -11,21 +11,26 @@
       </form>
    </div>
     <br>
-   
+    <div class="row row-cols-1 row-cols-md-2">
     {%  for inmueble in inmueble_page_obj %}
-       <h2>
-           {{ inmueble.tipo }}
-           <br>
-           {{ inmueble.edo }}
-           <br>
-           {{ inmueble.description }}
-           <br>
-           <!-- <img  src="media/{{ inmueble.image }}" > # creo que falta static -->
-           <img  src="{{ inmueble.image.url }}">
-           <br>
-           <a href="{% url 'detalle' inmueble.id %}" class="btn btn-primary btn-md">Read more</a>
-       </h2>
+    <div class="col mb-4">
+      <div class="card">
+        <div class="view overlay">
+          <img class="card-img-top" src="{{inmueble.image.url}}" alt="">
+          <a href="#!">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title"> {{ inmueble.tipo }}</h4>
+          <h4 class="card-title"> {{ inmueble.tipo }}</h4>
+          <p class="card-text">{{ inmueble.description }}</p>
+          <a href="{% url 'detalle' inmueble.id %}" class="btn btn-primary btn-md">Ver más Fotos</a>
+        </div>
+      </div>
+    </div>
     {% endfor %}
+    </div>
     <div class="pagination">
      <span class="step-links">
       {% if inmueble_page_obj.has_previous %}
