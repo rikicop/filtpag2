@@ -1,0 +1,148 @@
+{% extends 'inmuebles/base.html' %} 
+{% load static %} 
+{% block content %}
+<main class="l-main">
+    <!--===== HOME =====-->
+    <section class="home" id="home">
+        <div class="home__container bd-grid"><br><br>
+            <h1 class="home__title"><span>Somos RentaHouse!!</span></h1>
+            <img src="{% static 'images/perfilo.png' %}" alt="">
+            
+        </div>
+    </section>
+
+    <!--===== ABOUT =====-->
+    <section class="about section" id="about">
+        <center>
+            <h2 class="section-title">Quienes Somos</h2>
+
+            <div class="about__container bd-grid">
+                <div class="about__img">
+                    <img src="{% static 'images/renta.jpg' %}" alt="">
+                </div>
+
+                <div>
+                    <h2 class="about__subtitle">Rentahouse Ciudad Ojeda Karin Peña y Asociados, C.A.</h2>
+                    <span class="about__profession">Agencia Inmobiliaria</span>
+
+                    <span class="about__text">Rent a House es una empresa inmobiliaria fundada en 1969, desde entonces se ha dedicado a trabajar
+                             incansablemente, hasta lograr formar la gran Organización que representamos en la actualidad.
+                             <h2 style="color:#2a3b47">Visión</h2>  Lograr el mayor nivel de productividad por Franquiciado mediante la implementación de un modelo único y original de Rent A House. 
+                            <span class="moreText">
+                             <h2 style="color:#2a3b47" >Misión</h2> Prestar servicios inmobiliarios de excelente calidad en las regiones del país donde tengamos presencia, logrando un alto nivel de satisfacción a nuestros Franquiciados. 
+                             <h2 style="color:#2a3b47">Valores</h2> 1.Honestidad 2.Transparencia 3. Profesionalismo 4.Constancia 5.Creatividad 6.Ética
+                            </span>
+                    </span><br><br>
+                    <button class="read-more-btn">Leer Más</button>
+                    <br>
+                    <div class="about__social">
+                        <a href="https://www.instagram.com/karinpena.rentahouse/" class="about__social-icon"><i class='bx bxl-instagram' ></i></a>
+                        <a href="tel:0414-0619900" class="about__social-icon"><i class='bx bxl-whatsapp' ></i></a>
+                        <span class="fcbw">
+                            <a  
+                               href="https://www.facebook.com/karinpena.rentahouse/" 
+                               class="about__social-icon">
+                               <i class='bx bxl-facebook'></i>
+                            </a>
+                            </span>
+                        <span class="fcba">
+                                <a  
+                                href="fb://page/930599547678683/" 
+                                >
+                                <i class='bx bxl-facebook bx-sm'></i>
+                                </a>
+                        </span><br>
+                        <form action="https://rentahouseciudadojedakarinpenayasociados.negocio.site/">
+                            <button type="submit" class='google-btn'>
+                                    <img src="https://img.icons8.com/officexs/16/000000/google-logo.png">
+                                      Sitio Google
+                                </button>
+                        </form>
+        </center>
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <!--===== Equipo =====-->
+    <section class="skills section" id="skills">
+        <h2 class="section-title">Equipo</h2>
+
+        <div class="slider owl-carousel">
+            {% for equipo in equipos %}
+            <div class="card">
+                <div class="img"><!-- <img src="/static/images/{{equipo.img}}" alt=""> -->
+                    <img src="{{equipo.img.url}}" alt="">
+                </div>
+                <div class="content">
+                    <div class="title">{{equipo.title}}</div>
+                    <div class="sub-title">{{equipo.subtitle}}</div>
+                    <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit modi dolorem quis quae animi nihil minus sed unde voluptas cumque.</p>
+                     <div class="btn">
+                          <button>Read more</button>
+                        </div> -->
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </section>
+
+
+    <!--===== GALERÍA =====-->
+    <section class="portfolio section" id="portfolio">
+        <center>
+            <h2 class="section-title">Galería</h2>
+            <h2> Compra-Venta Y Alquiler</h2><br>
+
+            <div class="portfolio__container bd-grid">
+                {% for item in items %}
+                <div class="portfolio__img">
+                    <h2>{{item.name}}</h2>
+                    <img src="{{item.img}}" alt="">
+                    <div class="portfolio__link">
+                        <a href="{{item.details}}" class="portfolio__link-name"><h6>Ver Más</h6></a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </center>
+    </section>
+
+    <!--===== CONTACT =====-->
+    <section class="contact section" id="contact">
+        <center>
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact__container bd-grid">
+                <div class="contact__info">
+                    <h3 class="contact__subtitle">EMAIL</h3>
+                    <span class="contact__text">karinpena.rentahouse@gmail.com</span>
+
+                    <h3 class="contact__subtitle">TELÉFONO</h3>
+                    <span class="contact__text">+0414-0619900</span>
+
+                    <h3 class="contact__subtitle">TELÉFONO OFICINA</h3>
+                    <span class="contact__text">+0412-0694527</span>
+
+                    <h3 class="contact__subtitle">DIRECCIÓN</h3>
+                    <span class="contact__text">Ave. Trujillo Esquina con Ave. Bolívar, Edificio Hotel América, Piso PB(Galería) Ofic. No.2-1, Casco Central, Ciudad Ojeda, Edo. Zulia. – Venezuela</span>
+                </div>
+
+                <form action="" method="post" role="form" class="contactFormu">
+                    {% csrf_token %}
+                    <div class="contact__inputs">
+                        <input type="text" name="namef" placeholder="Name" class="contact__input" required>
+                        <input type="email" name="emailf" placeholder="Email" class="contact__input" required>
+                    </div>
+
+                    <textarea name="messagef" id="" cols="0" rows="2" class="contact__input" required></textarea>
+
+
+                    <input type="submit" value="Enviar" class="contact__button">
+                </form>
+        </center>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

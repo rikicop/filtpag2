@@ -1,8 +1,10 @@
 from django.contrib import admin
 
-from .models import Inmueble, InmuebleImage
+from .models import Inmueble, InmuebleImage, Post, Equipo, Contact
 
-#admin.site.register(Inmueble)
+admin.site.register(Post)
+admin.site.register(Equipo)
+admin.site.register(Contact)
 
 class InmuebleImageAdmin(admin.StackedInline):
     model = InmuebleImage

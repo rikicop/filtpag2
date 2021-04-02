@@ -2,8 +2,22 @@ from django.shortcuts import render, get_object_or_404
 
 from django.core.paginator import Paginator
 
-from .models import Inmueble, InmuebleImage
+from .models import Inmueble, InmuebleImage,Post,Equipo,Contact
 from .filters import InmuebleFilter
+
+def home(request):
+    items = Post.objects.all()
+    equipos = Equipo.objects.all()
+    if request.method =="POST":
+            name_form = request.POST['namef']
+            email_form = request.POST['emailf']
+            message_form = request.POST['messagef']
+            Contact.objects.create(name=name_form,email=email_form,message=message_form)
+            return render(request, 'inmuebles/home.html',{'items':items, 'equipos':equipos})
+    else:
+            return render(request, 'inmuebles/home.html',{'items':items, 'equipos':equipos})
+    return render(request, 'inmuebles/home.html', {'items':items,'equipos':equipos})
+
 
 def show_all_inmuebles_page(request):
     context = {}

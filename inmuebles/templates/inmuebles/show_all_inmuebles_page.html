@@ -1,7 +1,26 @@
 {% extends 'inmuebles/base.html' %}
 {% load static %}
+
+<ul class="nav__list">
+{% block ul %} 
+    <li class="nav__item"><a href="#home" class="nav__link active">Principal</a></li> 
+{% endblock %}
+</ul>
+
 {% block content %}
 
+<main class="l-main">
+  <!--===== HOME =====-->
+  <section class="home" id="home">
+      <div class="home__container bd-grid"><br><br>
+          <h1 class="home__title"><span>Somos RentaHouse!!</span></h1>
+          <img src="{% static 'images/perfilo.png' %}" alt="">
+          
+      </div>
+  </section>
+</main>
+
+<div class="container py-4">
     {% load inmuebles_extras %} 
     <div class="form_text">
       <form method="GET" action="">
@@ -48,6 +67,7 @@
        {% endif %}
      </span>
     </div>
+</div>
     {% endblock %}
 
 

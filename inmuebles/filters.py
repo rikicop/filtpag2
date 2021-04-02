@@ -3,6 +3,7 @@ import django_filters as filters
 
 from .models import Inmueble
 
+
 OJEDA = 'Ciudad Ojeda'
 TAMARE ='Tamare'
 TIAJUANA ='Tía Juana'

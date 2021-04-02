@@ -11,21 +11,120 @@
       crossorigin="anonymous"
     >
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    <title>Inmuebles</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.css' %}">
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <!-- ===== CARUSEL ===== -->
+
+
+    <title>{% block title %} Inmuebles {% endblock %}</title>
+    
 </head>
 <body>
-    <div class="container py-4">
+    <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav__logo">Karin Peña</a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    {% block ul %}  
+                    <li class="nav__item"><a href="#home" class="nav__link active">Principal</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">Quienes Somos</a></li>
+                    <li class="nav__item"><a href="#skills" class="nav__link">Equipo</a></li>
+                    <li class="nav__item"><a href="#portfolio" class="nav__link">Galería</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contacto</a></li>
+                    {% endblock %}
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+    <!-- <div class="container py-4"> -->
         {% block content %}
         
         {% endblock %}
-    </div>
+   <!--  </div> -->
+         <!--===== FOOTER =====-->
+    {% block footer %}
+    <footer class="footer section">
+        <div class="footer__container bd-grid">
+            <div class="footer__data">
+                <h2 class="footer__title">Karin Peña</h2>
+                <p class="footer__text">Soy Karin Peña y esta es mi página web</p>
+            </div>
+
+            <div class="footer__data">
+                <h2 class="footer__title">EXPLORE</h2>
+                <ul>
+                    <li><a href="#home" class="footer__link">Principal</a></li>
+                    <li><a href="#about" class="footer__link">Quienes Somos</a></li>
+                    <li><a href="#skills" class="footer__link">Equipo</a></li>
+                    <li><a href="#portfolio" class="footer__link">Galería</a></li>
+                    <li><a href="#contact" class="footer__link">Contacto</a></li>
+                </ul>
+            </div>
+
+           
+
+
+        </div>
+    </footer>
+    {% endblock %}
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--===== MAIN JS =====-->
+    <script src="{% static 'js/main.js' %}"></script>
+
+   <!--  <script src="{% static 'website/assets/js/jquery.js' %}"></script> -->
+    
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> 
-        <script>
-            /* $("#id_tipo").val('Casa,Apartamento')
-            $("#id_ubicacion").val('Ciudad Ojeda')
-            $("#id_edo").val('Nuevo') */
-        </script>  
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="{% static 'js/owl.carousel.js' %}"></script> 
+        {% block javascript %}
+        <script type="text/javascript">
+            $(".slider").owlCarousel({
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 2000, //2000ms = 2s;
+                autoplayHoverPause: true,
+                nav: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 2
+                    },
+                    1000: {
+                        items: 3
+                    }
+                }
+            });
+    
+            /*READ MORE*/
+            const readMoreBtn = document.querySelector('.read-more-btn')
+            const about__text = document.querySelector('.about__text');
+    
+    
+            readMoreBtn.addEventListener('click', (e)=>{
+                about__text.classList.toggle('show-more');
+                if(readMoreBtn.innerText === 'Leer Más'){
+                    readMoreBtn.innerText = 'Leer Menos';
+                }else{
+                    readMoreBtn.innerText = 'Leer Más'; 
+                }
+            })
+        </script>
+        {% endblock %}
 </body>
 </html>
