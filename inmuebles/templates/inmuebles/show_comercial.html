@@ -21,17 +21,9 @@
 </main>
 
 <div class="container py-4">
-    {% load inmuebles_extras %} 
-    <div class="form_text">
-      <form method="GET" action="">
-          {{ filtered_inmuebles.form.as_table }}
-          <br>
-          <input type="submit" class="btn btn-primary btn-md" value="Buscar">
-      </form>
-   </div>
-    <br>
     <div class="row row-cols-1 row-cols-md-2">
-    {%  for inmueble in inmueble_page_obj %}
+    {% for inmueble in inmuebles %}
+     {% if inmueble.posting == 'Comercial' %}
     <div class="col mb-4">
       <div class="card">
         <div class="view overlay">
@@ -48,26 +40,10 @@
         </div>
       </div>
     </div>
+    {% endif %}
     {% endfor %}
     </div>
-    <div class="pagination">
-     <span class="step-links">
-      {% if inmueble_page_obj.has_previous %}
-        <a href="{% my_url 1 'page' request.GET.urlencode %}">&laquo; Primero</a>
-        <a href="{% my_url inmueble_page_obj.previous_page_number 'page' request.GET.urlencode %}">Anterior</a>
-      {% endif %}
-
-        <span class="current">
-            Page {{ inmueble_page_obj.number }} of {{ inmueble_page_obj.paginator.num_pages }}
-        </span>
-
-       {% if inmueble_page_obj.has_next %}
-          <a href="{% my_url inmueble_page_obj.next_page_number 'page' request.GET.urlencode %}"> Siguiente</a>
-          <a href="{% my_url inmueble_page_obj.paginator.num_pages 'page' request.GET.urlencode %}">&raquo; Último</a>
-       {% endif %}
-     </span>
-    </div>
+    
 </div>
     {% endblock %}
-
 

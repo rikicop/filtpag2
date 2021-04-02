@@ -41,3 +41,19 @@ def detalle_view(request, id):
     #Va a filtrar un inmueble en particular
     fotos = InmuebleImage.objects.filter(inmueble=inmueble)
     return render(request, 'inmuebles/detalle.html', {'inmueble':inmueble,'fotos':fotos})
+
+def casa(request):
+    inmuebles = Inmueble.objects.all()
+    return render(request, 'inmuebles/show_casa.html', {'inmuebles':inmuebles})
+
+def oficina(request):
+    inmuebles = Inmueble.objects.all()
+    return render(request, 'inmuebles/show_oficina.html', {'inmuebles':inmuebles})
+
+def comercial(request):
+    inmuebles = Inmueble.objects.all()
+    return render(request, 'inmuebles/show_comercial.html', {'inmuebles':inmuebles})
+
+def lote(request):
+    inmuebles = Inmueble.objects.all()
+    return render(request, 'show_lote.html', {'inmuebles':inmuebles})

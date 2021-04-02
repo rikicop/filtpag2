@@ -21,6 +21,7 @@ CASA = 'Casa'
 APARTAMENTO= 'Apartamento'
 LOTE = 'Lote'
 OFICINA= 'Oficina'
+COMERCIAL= 'Comercial'
 
 
 OJEDA = 'Ciudad Ojeda'
@@ -31,9 +32,12 @@ TIAJUANA ='Tía Juana'
 NUEVO = 'Nuevo'
 USADO = 'Usado'
 
+# TIPO_CHOICES va a llevar mas que POST_CHOICES
 TIPO_CHOICES = [(CASA,CASA),(APARTAMENTO, APARTAMENTO), (LOTE, LOTE), (OFICINA,OFICINA)]
 UBI_CHOICES = [(OJEDA,OJEDA),(TAMARE, TAMARE),(TIAJUANA, TIAJUANA)]
 EDO_CHOICES = [ (NUEVO,NUEVO),(USADO, USADO),]
+
+POST_CHOICES = [(CASA,CASA),(APARTAMENTO, APARTAMENTO), (LOTE, LOTE), (OFICINA,OFICINA)]
 
 class Inmueble(models.Model):
     codigo = models.CharField(max_length=100)
@@ -44,6 +48,9 @@ class Inmueble(models.Model):
     precio = models.DecimalField(max_digits=7,decimal_places=2)
     description = models.TextField()
     image = models.FileField(upload_to=('here/{}'.format(time.strftime("%Y/%m/%d"))),blank=True)
+    posting = models.CharField(max_length=1000, choices=POST_CHOICES ,blank=True)
+    """ enlace = models.URLField(choices=POST_CHOICES, max_length=128, blank=True) """
+    
 
     def __str__(self):
         template = '{0.codigo} {0.tipo} {0.ubicacion} {0.edo} {0.precio}'
@@ -70,7 +77,7 @@ class Contact(models.Model):
 class Post(models.Model):
     name = models.CharField(max_length=300)
     img = models.FileField(blank=True)
-    details = models.CharField(max_length=500,blank=True)
+    details = models.CharField(max_length=1000, choices=POST_CHOICES ,blank=True)
 
     def __str__(self):
         template = '{0.name}'
