@@ -70,7 +70,7 @@
 
         <div class="slider owl-carousel">
             {% for equipo in equipos %}
-            <div class="card">
+            <div class="card" style="border: none;">
                 <div class="img"><!-- <img src="/static/images/{{equipo.img}}" alt=""> -->
                     <img src="{{equipo.img.url}}" alt="">
                 </div>
@@ -98,8 +98,8 @@
             <div class="portfolio__container bd-grid">
                 {% for item in items %}
                 <div class="portfolio__img">
-                    <h2>{{item.name}}</h2>
-                    <img src="{{item.img}}" alt="">
+                    <h2 style="font-size: 1.5rem;">{{item.name}}</h2>
+                    <img src="{{item.img.url}}" alt="">
                     <div class="portfolio__link">
                         <a href="{{item.details}}" class="portfolio__link-name"><h6>Ver Más</h6></a>
                     </div>

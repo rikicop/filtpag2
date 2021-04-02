@@ -69,14 +69,11 @@ class Contact(models.Model):
 
 class Post(models.Model):
     name = models.CharField(max_length=300)
-    desc = models.CharField(max_length=300)
-    price = models.DecimalField(max_digits=7,decimal_places=2)
     img = models.FileField(blank=True)
-    details = models.CharField(max_length=500)
-    detailsTitle = models.CharField(max_length=500)
+    details = models.CharField(max_length=500,blank=True)
 
     def __str__(self):
-        template = '{0.name} {0.desc} {0.price}'
+        template = '{0.name}'
         return template.format(self)
 
 class Equipo(models.Model):

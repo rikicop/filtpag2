@@ -1,0 +1,73 @@
+{% extends 'inmuebles/base.html' %}
+{% load static %}
+
+<ul class="nav__list">
+{% block ul %} 
+    <li class="nav__item"><a href="#home" class="nav__link active">Principal</a></li> 
+{% endblock %}
+</ul>
+
+{% block content %}
+
+<main class="l-main">
+  <!--===== HOME =====-->
+  <section class="home" id="home">
+      <div class="home__container bd-grid"><br><br>
+          <h1 class="home__title"><span>Somos RentaHouse!!</span></h1>
+          <img src="{% static 'images/perfilo.png' %}" alt="">
+          
+      </div>
+  </section>
+</main>
+
+<div class="container py-4">
+    {% load inmuebles_extras %} 
+    <div class="form_text">
+      <form method="GET" action="">
+          {{ filtered_inmuebles.form.as_table }}
+          <br>
+          <input type="submit" class="btn btn-primary btn-md" value="Buscar">
+      </form>
+   </div>
+    <br>
+    <div class="row row-cols-1 row-cols-md-2">
+    {%  for inmueble in inmueble_page_obj %}
+    <div class="col mb-4">
+      <div class="card">
+        <div class="view overlay">
+          <img class="card-img-top" src="{{inmueble.image.url}}" alt="">
+          <a href="#!">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title"> {{ inmueble.tipo }}</h4>
+          <h4 class="card-title"> {{ inmueble.tipo }}</h4>
+          <p class="card-text">{{ inmueble.description }}</p>
+          <a href="{% url 'detalle' inmueble.id %}" class="btn btn-primary btn-md">Ver más Fotos</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    </div>
+    <div class="pagination">
+     <span class="step-links">
+      {% if inmueble_page_obj.has_previous %}
+        <a href="{% my_url 1 'page' request.GET.urlencode %}">&laquo; Primero</a>
+        <a href="{% my_url inmueble_page_obj.previous_page_number 'page' request.GET.urlencode %}">Anterior</a>
+      {% endif %}
+
+        <span class="current">
+            Page {{ inmueble_page_obj.number }} of {{ inmueble_page_obj.paginator.num_pages }}
+        </span>
+
+       {% if inmueble_page_obj.has_next %}
+          <a href="{% my_url inmueble_page_obj.next_page_number 'page' request.GET.urlencode %}"> Siguiente</a>
+          <a href="{% my_url inmueble_page_obj.paginator.num_pages 'page' request.GET.urlencode %}">&raquo; Último</a>
+       {% endif %}
+     </span>
+    </div>
+</div>
+    {% endblock %}
+
+
