@@ -56,4 +56,8 @@ def comercial(request):
 
 def lote(request):
     inmuebles = Inmueble.objects.all()
-    return render(request, 'show_lote.html', {'inmuebles':inmuebles})
+    return render(request, 'inmuebles/show_lote.html', {'inmuebles':inmuebles})
+
+def base_two(request):
+    
+    return render(request, 'inmuebles/base_two.html', {})
