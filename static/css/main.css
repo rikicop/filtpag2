@@ -1,6 +1,6 @@
 #id_codigo{
   display: block;
-  width: 40%;
+  width: 55%;
   padding: 10px 10px;
   margin: 8px 0;
   border-radius: 4px;
@@ -10,7 +10,7 @@
 
 #id_tipo{
     display: block;
-    width: 40%;
+    width: 55%;
     padding: 14px 20px;
     margin: 8px 0;
     border-radius: 4px;
@@ -20,7 +20,7 @@
 
   #id_ubicacion{
     display: block;
-    width: 40%;
+    width: 55%;
     padding: 14px 20px;
     margin: 8px 0;
     border-radius: 4px;
@@ -31,7 +31,7 @@
   #id_edo{
         
     display: block;
-    width: 40%;
+    width: 55%;
     padding: 14px 20px;
     margin: 8px 0;
     border-radius: 4px;
@@ -46,3 +46,7 @@
       font-size:      20px;
       font-weight:    bold;
   }
+
+
+
+ 

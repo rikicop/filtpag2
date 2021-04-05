@@ -5,11 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" 
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
-      crossorigin="anonymous"
-    >
+    
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
@@ -37,35 +35,32 @@
                     >
                 </a>
                 <p style="display: inline-block; margin-left: 2px; " > 
-                    <a href="{% url 'show_all_inmuebles_page' %}">Buscar Inmuebles
-                    </a>
+                    <a href="{% url 'show_all_inmuebles_page' %}">Buscar Más</a>
                 </p>
             </div>
-
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
-                    {% block ul %}  
-                    <li class="nav__item"><a href="#home" class="nav__link active">Principal</a></li>
-                    <li class="nav__item"><a href="#about" class="nav__link">Quienes Somos</a></li>
-                    <li class="nav__item"><a href="#skills" class="nav__link">Equipo</a></li>
-                    <li class="nav__item"><a href="#portfolio" class="nav__link">Galería</a></li>
-                    <li class="nav__item"><a href="#contact" class="nav__link">Contacto</a></li>
-                    {% endblock %}
+                    
+                   <!--  <li class="nav__item__two">
+                        <a href="{% url 'home' %}" class="nav__link active">
+                            <i class='bx bx-arrow-back' style="color:white"></i>
+                        </a>
+                    </li> -->
+                    
                 </ul>
             </div>
-
-            <div class="nav__toggle" id="nav-toggle">
-                <i class='bx bx-menu'></i>
+            <div class="nav__item__two">
+                <a href="{% url 'home' %}"><i class='bx bx-arrow-back' style="color: white;"></i></a>
             </div>
         </nav>
     </header>
-    <!-- <div class="container py-4"> -->
+     <!-- <div class="container py-4">  -->
         {% block content %}
         
         {% endblock %}
-   <!--  </div> -->
+     <!-- </div>  -->
          <!--===== FOOTER =====-->
-    {% block footer %}
+  {% block footer %}
     <footer class="footer section">
         <div class="footer__container bd-grid">
             <div class="footer__data">
@@ -89,7 +84,7 @@
 
         </div>
     </footer>
-    {% endblock %}
+    {% endblock %} 
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <!--===== MAIN JS =====-->

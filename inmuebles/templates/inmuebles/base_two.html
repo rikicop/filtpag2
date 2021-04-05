@@ -28,24 +28,26 @@
     <header class="l-header">
         <nav class="nav bd-grid">
             <div>
-                <a href="#" class="nav__logo">Karin Peña</a>
-                <a href="">
+                <a href="{% url 'home' %}" class="nav__logo">Karin Peña</a>
+                <a href="{% url 'show_all_inmuebles_page' %}">
                     <img 
                      src="{% static 'images/search.png' %}" 
                      style="display: inline-block; margin-left: 20px; " 
                      alt=""
                     >
                 </a>
-                <p style="display: inline-block; margin-left: 2px; " > <a href="">Buscar Más</a></p>
+                <p style="display: inline-block; margin-left: 2px; " > 
+                    <a href="{% url 'show_all_inmuebles_page' %}">Buscar Más</a>
+                </p>
             </div>
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     
-                    <li class="nav__item__two">
+                   <!--  <li class="nav__item__two">
                         <a href="{% url 'home' %}" class="nav__link active">
                             <i class='bx bx-arrow-back' style="color:white"></i>
                         </a>
-                    </li>
+                    </li> -->
                     
                 </ul>
             </div>
