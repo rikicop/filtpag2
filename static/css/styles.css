@@ -199,6 +199,10 @@ img {
     color: var(--white-color);
 }
 
+.nav__logo:hover {
+    color: var(--white-color);
+}
+
 .nav__toggle {
     color: var(--white-color);
     font-size: 1.5rem;
@@ -312,7 +316,7 @@ img {
 }
 
 .about__social-icon {
-    font-size: 1.4rem;
+    font-size: 3.4rem;
     margin: 0 var(--mb-1);
 }
 
@@ -522,11 +526,16 @@ img {
     bottom: 0;
 }
 
+.portfolio__link-name:hover {
+    color: var(--white-color);
+}
+
 .portfolio__link-name {
-    color: black;
+    color: rgb(0, 0, 0);
     font-size: 23px;
 
 }
+
 
 
 /* ===== CONTACT =====*/
