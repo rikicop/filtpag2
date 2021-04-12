@@ -16,25 +16,36 @@ def path_and_rename(path):
         return os.path.join(path, filename)
     return wrapper
 
-
 CASA = 'Casa'
 APARTAMENTO= 'Apartamento'
+TOWNHOUSE ='Townhouse'
 LOTE = 'Lote'
 OFICINA= 'Oficina'
 COMERCIAL= 'Comercial'
 
-
 OJEDA = 'Ciudad Ojeda'
 TAMARE ='Tamare'
 TIAJUANA ='Tía Juana'
+LAGUNILLAS ='Lagunillas'
+MARACAIBO ='Maracaibo'
+CABIMAS = 'Cabimas'
 
+VENTA = 'Venta'
+ALQUILER = 'Alquiler'
 
 NUEVO = 'Nuevo'
 USADO = 'Usado'
 
+
+
+
 # TIPO_CHOICES va a llevar mas que POST_CHOICES
-TIPO_CHOICES = [(CASA,CASA),(APARTAMENTO, APARTAMENTO), (LOTE, LOTE), (OFICINA,OFICINA)]
-UBI_CHOICES = [(OJEDA,OJEDA),(TAMARE, TAMARE),(TIAJUANA, TIAJUANA)]
+TIPO_CHOICES = [(CASA,CASA),(APARTAMENTO, APARTAMENTO), (TOWNHOUSE,TOWNHOUSE),(LOTE, LOTE), (OFICINA,OFICINA),(COMERCIAL,COMERCIAL)]
+
+UBI_CHOICES = [(OJEDA,OJEDA),(TAMARE, TAMARE),(TIAJUANA, TIAJUANA),(LAGUNILLAS, LAGUNILLAS),(MARACAIBO,MARACAIBO),(CABIMAS,CABIMAS)]
+
+PROPOSITO_CHOICES = [ (VENTA,VENTA),(ALQUILER, ALQUILER),]
+
 EDO_CHOICES = [ (NUEVO,NUEVO),(USADO, USADO),]
 
 POST_CHOICES =[(CASA,CASA),(APARTAMENTO,APARTAMENTO),(LOTE, LOTE),(OFICINA,OFICINA),(COMERCIAL,COMERCIAL)]
@@ -44,6 +55,7 @@ class Inmueble(models.Model):
     #codigo = models.DateTimeField(auto_now_add=True)
     tipo = models.CharField(max_length=50, choices=TIPO_CHOICES ,blank=True, default='Error')
     ubicacion = models.CharField(max_length=1000, choices=UBI_CHOICES ,blank=True)
+    proposito = models.CharField(max_length=1000, choices=PROPOSITO_CHOICES ,blank=True)
     edo = models.CharField(max_length=1000, choices=EDO_CHOICES ,blank=True)
     precio = models.DecimalField(max_digits=7,decimal_places=2)
     description = models.TextField()
@@ -53,7 +65,7 @@ class Inmueble(models.Model):
     
 
     def __str__(self):
-        template = '{0.codigo} {0.tipo} {0.ubicacion} {0.edo} {0.precio}'
+        template = '{0.codigo} {0.tipo} {0.ubicacion} {0.proposito} {0.edo} {0.precio}'
         return template.format(self)
 
 class InmuebleImage(models.Model):
