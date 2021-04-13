@@ -1,0 +1,52 @@
+#id_codigo{
+  display: block;
+  width: 55%;
+  padding: 10px 10px;
+  margin: 8px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: white;
+}
+
+#id_tipo{
+    display: block;
+    width: 55%;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: white;
+  }
+
+  #id_ubicacion{
+    display: block;
+    width: 55%;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: white;
+  }
+
+  #id_edo{
+        
+    display: block;
+    width: 55%;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: white;
+  }
+
+
+  .form_text
+  {
+      font-family:    Arial, Helvetica, sans-serif;
+      font-size:      20px;
+      font-weight:    bold;
+  }
+
+
+
+ 

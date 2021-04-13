@@ -11,6 +11,7 @@ class InmuebleImageAdmin(admin.StackedInline):
 @admin.register(Inmueble)
 class PostAdmin(admin.ModelAdmin):
     inlines = [InmuebleImageAdmin]
+    search_fields = ('codigo',)
     class Meta:
        model = Inmueble
 @admin.register(InmuebleImage)
