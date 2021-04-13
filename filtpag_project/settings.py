@@ -54,6 +54,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #'whitenoise.middleware.WhiteNoiseMiddleware',
             ],
         },
     },
@@ -109,13 +110,26 @@ USE_TZ = True
 #Para pythonanywhere.com admin css, no es necesario
 #STATIC_ROOT = os.path.join(BASE_DIR, "static") #new
 
-STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+#STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, 'static'),
+#]
 
 MEDIA_URL = '/media/' #NEW
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #NEW
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATIC_URL = '/static/'
+
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static'),
+)
+
+
+
+
 
