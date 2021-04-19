@@ -32,9 +32,9 @@ def show_all_inmuebles_page(request):
 
     context['inmueble_page_obj'] = inmueble_page_obj 
 
-
-
     return render(request, 'inmuebles/show_all_inmuebles_page.html',context=context) 
+    
+   
 
 def detalle_view(request, id):
     inmueble = get_object_or_404(Inmueble, id=id)

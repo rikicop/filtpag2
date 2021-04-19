@@ -22,12 +22,15 @@
 <div class="container py-4">
     {% load inmuebles_extras %} 
     <div class="form_text">
-      <form method="GET" action="">
+      <form method="GET" action="" id="myform" name="myform">
           {{ filtered_inmuebles.form.as_table }}
           <br>
-          <input type="submit" class="btn btn-primary btn-md" value="Buscar">
+          <input onclick="" type="submit" class="btn btn-primary btn-md" value="Buscar" >
+          <button type="button" class="btn btn-info btn-md" onclick="fun()" >Reset</button>         
       </form>
+        
    </div>
+   
     <br>
     <div class="row row-cols-1 row-cols-md-2">
     {%  for inmueble in inmueble_page_obj %}
@@ -40,10 +43,16 @@
           </a>
         </div>
         <div class="card-body">
-          <h4 class="card-title"> {{ inmueble.tipo }}</h4>
-          <h4 class="card-title"> {{ inmueble.tipo }}</h4>
+          <h4 class="card-title"> {{ inmueble.tipo }} </h4>
+          <h4 class="card-title"> {{ inmueble.ubicacion }}</h4>
+          <h6 class="card-title"> Cod: {{ inmueble.codigo }} </h6> 
           <p class="card-text">{{ inmueble.description }}</p>
-          <a href="{% url 'detalle' inmueble.id %}" class="btn btn-primary btn-md">Ver más Fotos</a>
+          <a href="{% url 'detalle' inmueble.id %}" 
+             class="btn btn-primary btn-md" 
+             style="background-color: #183758; border-color: #101010;"
+          >
+            Más Fotos
+          </a>
         </div>
       </div>
     </div>
@@ -66,7 +75,18 @@
        {% endif %}
      </span>
     </div>
-</div>
-    {% endblock %}
+</div>    
+{% endblock %}
 
+{% block subjs %}
+  <script>
+ 
+  function fun(){
+    document.getElementById('id_tipo').value='';
+    document.getElementById('id_ubicacion').value='';
+    document.getElementById('id_proposito').value='';
+    document.getElementById('id_codigo').value='';  
+  }
 
+  </script>
+{% endblock %}

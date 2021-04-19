@@ -207,6 +207,7 @@ img {
     color: var(--white-color);
     font-size: 1.5rem;
     cursor: pointer;
+    margin-right: 10px;
 }
 
 
@@ -393,6 +394,13 @@ img {
 .skills__subtitle {
     color: var(--first-color);
     margin-bottom: var(--mb-3);
+}
+
+.sub-message{
+    line-height: 20px;
+    text-align: center;
+    font-size: 12px; 
+    color: #353434cc;
 }
 
 .skills__name {

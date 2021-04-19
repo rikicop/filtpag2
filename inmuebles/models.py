@@ -98,6 +98,7 @@ class Post(models.Model):
 class Equipo(models.Model):
     title = models.CharField(max_length=300)
     subtitle = models.CharField(max_length=300)
+    message = models.TextField(max_length=500,blank=True)
     img = models.FileField(blank=True)
     
 
