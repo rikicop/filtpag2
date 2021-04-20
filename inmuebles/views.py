@@ -26,7 +26,7 @@ def show_all_inmuebles_page(request):
     
     context['filtered_inmuebles'] = filtered_inmuebles
 
-    paginated_filtered_inmuebles = Paginator(filtered_inmuebles.qs,3)
+    paginated_filtered_inmuebles = Paginator(filtered_inmuebles.qs,6)
     page_number = request.GET.get('page')
     inmueble_page_obj = paginated_filtered_inmuebles.get_page(page_number)
 
